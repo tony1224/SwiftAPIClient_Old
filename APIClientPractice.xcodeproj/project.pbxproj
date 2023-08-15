@@ -187,6 +187,7 @@
 		FBC9C7412A8B257A006E8F6D /* Api */ = {
 			isa = PBXGroup;
 			children = (
+				FBF162D729D298FE002D92B5 /* YoutubeEntity.swift */,
 				FB84ECE22986D14C00777DBA /* YoutubeApi.swift */,
 			);
 			path = Api;
@@ -206,7 +207,6 @@
 		FBF162D629D298F0002D92B5 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				FBF162D729D298FE002D92B5 /* YoutubeEntity.swift */,
 				FBC9C7432A8B25D8006E8F6D /* YoutubeRepositoryProtocol.swift */,
 			);
 			path = Domain;

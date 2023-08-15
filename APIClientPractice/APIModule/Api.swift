@@ -7,11 +7,6 @@
 
 import Foundation
 
-public enum ApiHTTPMethod: String {
-    case get = "GET"
-    case post = "POST"
-}
-
 public enum ApiRetryStrategy {
     case none
     case retry(maxRetry: Int)
@@ -30,25 +25,40 @@ public enum ApiRetryStrategy {
     }
 }
 
-public protocol Api {
-    associatedtype RequestParams
-    associatedtype Response
-    associatedtype ErrorResponse: ApiErrorResponse
+public protocol RequestProtocol {
+    associatedtype Response: DataStructure
+    var method: HTTPMethod { get }
+    // 各APIでこのI/F準拠の元extensionを作りここを指定
+    var baseURL: String { get }
+    var path: String { get }
+
+    // dictよりもstruct定義の方が書きやすい
+    var parameters: [String: Any]? { get set }
+    // TODO: postで出てくる
+    // associatedtype RequestParams
+    // var requestParams: RequestParams { get }
+    // func requestBody() throws -> Data
+
+    // associatedtype ErrorResponse: ApiErrorResponse
     
-    static var baseUrl: String { get }
-    static var path: String { get }
-    static var method: ApiHTTPMethod { get }
-    static var retryWhenNetworkConnectionLost: ApiRetryStrategy { get }
+    // retryの仕組みは一旦保留
+    // static var retryWhenNetworkConnectionLost: ApiRetryStrategy { get }
+
     // RみたくresponseTypeがある場合はtype: ApiResponseContentsTypeを追加
-    static func parseResponse(data: Data) throws -> Response
+    // static func parseResponse(data: Data) throws -> Response
     
-    var requestParams: RequestParams { get }
-    var queryItems: [String: String] { get }
-    // 不要では？
-//    var sessionProvider: ApiSessionProvider { get }
-    
-    var url: URL? { get }
-    func requestBody() throws -> Data
+    // YoutubeDataApiでsessionToken的なのはAPIキーで対応する
+    // のでsessionProvider.isSessinTokenRequiredはfalse
+    // var sessionProvider: ApiSessionProvider { get }    
+}
+
+public protocol DataStructure: Encodable, Decodable {
+    var status: String { get }
+}
+
+public enum HTTPMethod: String {
+    case get = "GET"
+    case post = "POST"
 }
 
 //public protocol ApiSessionProvider {

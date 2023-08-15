@@ -35,7 +35,8 @@ public struct YoutubeID: Codable {
     public let videoId: String
 }
 
-public struct YoutubeEntity: Codable {
+public struct YoutubeEntity: DataStructure {
+    public let status: String
     public let id: YoutubeID
     public let snuippet: YoutubeSnippet
 }

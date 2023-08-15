@@ -8,7 +8,7 @@
 import Foundation
 
 protocol ContentUseCaseProtocol {
-    func getYoutube() async throws -> YoutubeEntity
+    func searchMovie(query: String) async throws -> YoutubeEntity
 }
 
 class ContentUseCase: ContentUseCaseProtocol {
@@ -18,8 +18,8 @@ class ContentUseCase: ContentUseCaseProtocol {
         self.repository = repository
     }
     
-    func getYoutube() async throws -> YoutubeEntity {
-        try await repository.findYoutube()
+    func searchMovie(query: String) async throws -> YoutubeEntity {
+        try await repository.search(query: query)
     }
     
 }

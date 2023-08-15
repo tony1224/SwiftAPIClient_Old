@@ -8,71 +8,70 @@
 import Foundation
 
 public protocol ApiClientProtocol {
-    func request<T: Api>(api: T) async throws -> T.Response
+    func request<T: RequestProtocol>(api: T) async throws -> T.Response
 }
 
-public class DefaultApiClient: ApiClientProtocol {
+public final class ApiClient: ApiClientProtocol {
     public init() {}
     
-    public func request<T>(api: T) async throws -> T.Response where T : Api {
+    public func request<T: RequestProtocol>(api: T) async throws -> T.Response {
         guard let urlRequest = try? createURLRequest(api) else {
             throw ApiError.Client.parameterParseError
         }
         do {
-            let result = try await Task.retrying(maxRetryCount: T.retryWhenNetworkConnectionLost.maxRetry) {
-                return try await URLSession.shared.data(for: urlRequest)
-            }.value
-            guard let urlResponse = result.1 as? HTTPURLResponse, case 200..<400 = urlResponse.statusCode else {
-                //  var errorResponse = try parseErrorResponse(api, data: result.0)
-                //  errorResponse.url = result.1.url
-                // FIXME: サーバー側に依存する部分
-                // TODO: どういうのが一般的か
-                throw ApiError.Client.parameterParseError
+            // retry処理
+            // let result = try await Task.retrying(maxRetryCount: T.retryWhenNetworkConnectionLost.maxRetry) {
+            // return try await URLSession.shared.data(for: urlRequest)
+            // }.value
+            let (data, urlResponse) = try await URLSession.shared.data(for: urlRequest)
+            // responseチェック
+            guard let urlResponse = urlResponse as? HTTPURLResponse else {
+                throw ApiError.Client.noResponse
             }
-            return try T.parseResponse(data: result.0)
+            // statuscodeチェック
+            guard 200..<300 ~= urlResponse.statusCode else {
+                throw ApiError.Client.unacceptableStatusCode(urlResponse.statusCode)
+            }
+            // 一旦JSONだけ想定
+            return try JSONDecoder().decode(T.Response.self, from: data)
         } catch {
             // TODO: 通信遮断について
             throw error
         }
     }
     
-    private func createURLRequest<T: Api>(_ api: T) throws -> URLRequest {
-        guard let url = api.url else {
-            throw ApiError.Client.parameterParseError
+    private func createURLRequest<T: RequestProtocol>(_ request: T) throws -> URLRequest {
+        guard let url = URL(string: request.baseURL)?.appendingPathComponent(request.path) else {
+            throw ApiError.Client.failedToCreateURL
         }
-        
         var urlRequest: URLRequest
-        switch T.method {
+        switch request.method {
         case .get:
-            if var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false), api.queryItems.count > 0 {
-                urlComponents.queryItems = []
-                api.queryItems.forEach {
-                    urlComponents.queryItems?.append(URLQueryItem(name: $0.key, value: $0.value))
-                }
-                urlRequest = URLRequest(url: urlComponents.url!)
-            } else {
-                urlRequest = URLRequest(url: url)
+            guard var components = URLComponents(url: url, resolvingAgainstBaseURL: true) else {
+                throw ApiError.Client.failedToCreateComponents(url)
             }
+            components.queryItems = request.parameters?.compactMap {
+                .init(name: $0.key, value: "\($0.value)")
+            }
+            guard let tmpRequest = components.url.map({ URLRequest(url: $0)} ) else {
+                throw ApiError.Client.failedToCreateURL
+            }
+            urlRequest = tmpRequest
         case .post:
             urlRequest = URLRequest(url: url)
-            urlRequest.httpBody = try api.requestBody()
+            // TODO: postなAPI対応時に
+            // urlRequest.httpBody = try api.requestBody()
         }
-        urlRequest.httpMethod = T.method.rawValue
-        
+        urlRequest.httpMethod = request.method.rawValue
+
         // NOTE: YoutubeDataApiはheader対応不要
-        // GETのみ
-        // YoutubeDataApiでsessionToken的なのはAPIキーで対応する
-        // のでsessionProvider.isSessinTokenRequiredはfalse
         // urlRequest.allHTTPHeaderFields = try createHeaders(api)
         return urlRequest
     }
     
-//    private func createHeaders<T: Api>(_ api: T) throws -> [String: String] {
-//        let headers = [String: String]()
-//        return headers
-//    }
+    // private func createHeaders<T: Api>(_ api: T) throws -> [String: String] {
+    //    let headers = [String: String]()
+    //    return headers
+    // }
     
-//    private func parseErrorResponse<T: Api>(_ api: T, data: Data) throws -> T.ErrorResponse {
-//        return try JSONDecoder().decode(T.ErrorResponse.self, from: data)
-//    }
 }

@@ -27,7 +27,7 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        let uc = ContentUseCase(repository: YoutubeRepository())
+        let uc = ContentUseCase(repository: YoutubeRepository(apiClient: ApiClient()))
         return ContentView(useCase: uc)
     }
 }

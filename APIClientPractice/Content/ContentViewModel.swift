@@ -20,7 +20,7 @@ class ContentViewModel: ObservableObject {
     @MainActor
     func fetchYoutube() async {
         do {
-            let entity = try await useCase.getYoutube()
+            let entity = try await useCase.searchMovie(query: "dog")
             print(entity)
         } catch {
             print(error)

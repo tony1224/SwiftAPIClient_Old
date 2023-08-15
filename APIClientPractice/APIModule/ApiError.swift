@@ -51,6 +51,11 @@ public enum ApiError: Error {
     case undefined
     
     public enum Client: ApiErrorCategory {
+        case failedToCreateURL
+        case failedToCreateComponents(URL)
+        case noResponse
+        case unacceptableStatusCode(Int)
+        
         case parameterParseError
         case jsonParseError(URL?, Error)
         case sessionTokenRequired
