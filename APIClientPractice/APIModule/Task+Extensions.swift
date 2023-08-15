@@ -7,7 +7,7 @@
 
 import Foundation
 
-// Coreで良いが今はここ
+// NOTE: Coreで良いが今はここ
 
 extension Task where Failure == Error {
     @discardableResult

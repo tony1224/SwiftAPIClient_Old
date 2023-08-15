@@ -1,0 +1,10 @@
+@startuml
+
+interface ApiClientProtocol {
+  - requet<T: Api>(api: T) async throws -> T.Response
+}
+
+
+
+
+@enduml

@@ -8,6 +8,12 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject private var viewModel: ContentViewModel
+    
+    init(useCase: ContentUseCaseProtocol) {
+        _viewModel = StateObject(wrappedValue: ContentViewModel(useCase: useCase))
+    }
+    
     var body: some View {
         VStack {
             Image(systemName: "globe")
@@ -21,6 +27,7 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        let uc = ContentUseCase(repository: YoutubeRepository())
+        return ContentView(useCase: uc)
     }
 }

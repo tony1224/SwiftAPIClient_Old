@@ -1,0 +1,25 @@
+//
+//  ContentUseCaseProtocol.swift
+//  APIClientPractice
+//
+//  Created by Jun Morita on 2023/08/15.
+//
+
+import Foundation
+
+protocol ContentUseCaseProtocol {
+    func getYoutube() async throws -> YoutubeEntity
+}
+
+class ContentUseCase: ContentUseCaseProtocol {
+    private let repository: YoutubeRepositoryProtocol
+    
+    init(repository: YoutubeRepositoryProtocol) {
+        self.repository = repository
+    }
+    
+    func getYoutube() async throws -> YoutubeEntity {
+        try await repository.findYoutube()
+    }
+    
+}

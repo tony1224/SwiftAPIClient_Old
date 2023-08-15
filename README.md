@@ -1,3 +1,6 @@
+# 今作業してるのはAPIModule 
+- 大まかなインターフェースをそこにまとめる
+- 全体図はUMLを参照
 # api-client-practice
 - APIモジュールを作成
 - Main TargetからAPIモジュールを参照しAPIリクエストを行いレスポンスを取得する仕組みの練習

@@ -14,13 +14,16 @@
 		FB5A8D0D2980BC9A0097C4F3 /* APIClientPracticeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5A8D0C2980BC9A0097C4F3 /* APIClientPracticeTests.swift */; };
 		FB5A8D172980BC9A0097C4F3 /* APIClientPracticeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5A8D162980BC9A0097C4F3 /* APIClientPracticeUITests.swift */; };
 		FB5A8D192980BC9A0097C4F3 /* APIClientPracticeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5A8D182980BC9A0097C4F3 /* APIClientPracticeUITestsLaunchTests.swift */; };
-		FB84ECD12985594500777DBA /* APIModule.h in Headers */ = {isa = PBXBuildFile; fileRef = FB84ECD02985594500777DBA /* APIModule.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FB84ECD42985594500777DBA /* APIModule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB84ECCE2985594500777DBA /* APIModule.framework */; };
-		FB84ECD52985594500777DBA /* APIModule.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FB84ECCE2985594500777DBA /* APIModule.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		FB84ECDB29855AED00777DBA /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB84ECDA29855AED00777DBA /* Api.swift */; };
-		FB84ECDD29855EC800777DBA /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB84ECDC29855EC800777DBA /* ApiClient.swift */; };
-		FB84ECDF29855F4F00777DBA /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB84ECDE29855F4F00777DBA /* ApiError.swift */; };
-		FB84ECE1298561D200777DBA /* Task+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB84ECE0298561D200777DBA /* Task+Extensions.swift */; };
+		FBC9C7162A8B24AF006E8F6D /* ContentUseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC9C7152A8B24AF006E8F6D /* ContentUseCaseProtocol.swift */; };
+		FBC9C73B2A8B254C006E8F6D /* YoutubeEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF162D729D298FE002D92B5 /* YoutubeEntity.swift */; };
+		FBC9C73C2A8B2568006E8F6D /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB84ECDA29855AED00777DBA /* Api.swift */; };
+		FBC9C73D2A8B256B006E8F6D /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB84ECDC29855EC800777DBA /* ApiClient.swift */; };
+		FBC9C73E2A8B256D006E8F6D /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB84ECDE29855F4F00777DBA /* ApiError.swift */; };
+		FBC9C73F2A8B256F006E8F6D /* Task+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB84ECE0298561D200777DBA /* Task+Extensions.swift */; };
+		FBC9C7402A8B2572006E8F6D /* YoutubeApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB84ECE22986D14C00777DBA /* YoutubeApi.swift */; };
+		FBC9C7442A8B25D8006E8F6D /* YoutubeRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC9C7432A8B25D8006E8F6D /* YoutubeRepositoryProtocol.swift */; };
+		FBC9C7462A8B2B16006E8F6D /* YoutubeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC9C7452A8B2B16006E8F6D /* YoutubeRepository.swift */; };
+		FBF162DA29D29B4B002D92B5 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF162D929D29B4B002D92B5 /* ContentViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,13 +41,6 @@
 			remoteGlobalIDString = FB5A8CF62980BC980097C4F3;
 			remoteInfo = APIClientPractice;
 		};
-		FB84ECD22985594500777DBA /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FB5A8CEF2980BC980097C4F3 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FB84ECCD2985594500777DBA;
-			remoteInfo = APIModule;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -54,7 +50,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				FB84ECD52985594500777DBA /* APIModule.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -73,12 +68,16 @@
 		FB5A8D122980BC9A0097C4F3 /* APIClientPracticeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = APIClientPracticeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB5A8D162980BC9A0097C4F3 /* APIClientPracticeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientPracticeUITests.swift; sourceTree = "<group>"; };
 		FB5A8D182980BC9A0097C4F3 /* APIClientPracticeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientPracticeUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		FB84ECCE2985594500777DBA /* APIModule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = APIModule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FB84ECD02985594500777DBA /* APIModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIModule.h; sourceTree = "<group>"; };
 		FB84ECDA29855AED00777DBA /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		FB84ECDC29855EC800777DBA /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		FB84ECDE29855F4F00777DBA /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
 		FB84ECE0298561D200777DBA /* Task+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+Extensions.swift"; sourceTree = "<group>"; };
+		FB84ECE22986D14C00777DBA /* YoutubeApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeApi.swift; sourceTree = "<group>"; };
+		FBC9C7152A8B24AF006E8F6D /* ContentUseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentUseCaseProtocol.swift; sourceTree = "<group>"; };
+		FBC9C7432A8B25D8006E8F6D /* YoutubeRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeRepositoryProtocol.swift; sourceTree = "<group>"; };
+		FBC9C7452A8B2B16006E8F6D /* YoutubeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeRepository.swift; sourceTree = "<group>"; };
+		FBF162D729D298FE002D92B5 /* YoutubeEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeEntity.swift; sourceTree = "<group>"; };
+		FBF162D929D29B4B002D92B5 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,7 +85,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB84ECD42985594500777DBA /* APIModule.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,13 +102,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FB84ECCB2985594500777DBA /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -120,7 +111,6 @@
 				FB5A8CF92980BC980097C4F3 /* APIClientPractice */,
 				FB5A8D0B2980BC9A0097C4F3 /* APIClientPracticeTests */,
 				FB5A8D152980BC9A0097C4F3 /* APIClientPracticeUITests */,
-				FB84ECCF2985594500777DBA /* APIModule */,
 				FB5A8CF82980BC980097C4F3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -131,7 +121,6 @@
 				FB5A8CF72980BC980097C4F3 /* APIClientPractice.app */,
 				FB5A8D082980BC9A0097C4F3 /* APIClientPracticeTests.xctest */,
 				FB5A8D122980BC9A0097C4F3 /* APIClientPracticeUITests.xctest */,
-				FB84ECCE2985594500777DBA /* APIModule.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -139,8 +128,10 @@
 		FB5A8CF92980BC980097C4F3 /* APIClientPractice */ = {
 			isa = PBXGroup;
 			children = (
+				FBC9C7422A8B25B0006E8F6D /* Content */,
+				FBC9C73A2A8B252C006E8F6D /* Core */,
+				FBC9C7392A8B2517006E8F6D /* APIModule */,
 				FB5A8CFA2980BC980097C4F3 /* APIClientPracticeApp.swift */,
-				FB5A8CFC2980BC980097C4F3 /* ContentView.swift */,
 				FB5A8CFE2980BC9A0097C4F3 /* Assets.xcassets */,
 				FB5A8D002980BC9A0097C4F3 /* APIClientPractice.entitlements */,
 				FB5A8D012980BC9A0097C4F3 /* Preview Content */,
@@ -173,10 +164,10 @@
 			path = APIClientPracticeUITests;
 			sourceTree = "<group>";
 		};
-		FB84ECCF2985594500777DBA /* APIModule */ = {
+		FBC9C7392A8B2517006E8F6D /* APIModule */ = {
 			isa = PBXGroup;
 			children = (
-				FB84ECD02985594500777DBA /* APIModule.h */,
+				FBC9C7412A8B257A006E8F6D /* Api */,
 				FB84ECDA29855AED00777DBA /* Api.swift */,
 				FB84ECDC29855EC800777DBA /* ApiClient.swift */,
 				FB84ECDE29855F4F00777DBA /* ApiError.swift */,
@@ -185,18 +176,43 @@
 			path = APIModule;
 			sourceTree = "<group>";
 		};
-/* End PBXGroup section */
-
-/* Begin PBXHeadersBuildPhase section */
-		FB84ECC92985594500777DBA /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FB84ECD12985594500777DBA /* APIModule.h in Headers */,
+		FBC9C73A2A8B252C006E8F6D /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				FBF162D629D298F0002D92B5 /* Domain */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			path = Core;
+			sourceTree = "<group>";
 		};
-/* End PBXHeadersBuildPhase section */
+		FBC9C7412A8B257A006E8F6D /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				FB84ECE22986D14C00777DBA /* YoutubeApi.swift */,
+			);
+			path = Api;
+			sourceTree = "<group>";
+		};
+		FBC9C7422A8B25B0006E8F6D /* Content */ = {
+			isa = PBXGroup;
+			children = (
+				FBF162D929D29B4B002D92B5 /* ContentViewModel.swift */,
+				FBC9C7152A8B24AF006E8F6D /* ContentUseCaseProtocol.swift */,
+				FB5A8CFC2980BC980097C4F3 /* ContentView.swift */,
+				FBC9C7452A8B2B16006E8F6D /* YoutubeRepository.swift */,
+			);
+			path = Content;
+			sourceTree = "<group>";
+		};
+		FBF162D629D298F0002D92B5 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				FBF162D729D298FE002D92B5 /* YoutubeEntity.swift */,
+				FBC9C7432A8B25D8006E8F6D /* YoutubeRepositoryProtocol.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
 		FB5A8CF62980BC980097C4F3 /* APIClientPractice */ = {
@@ -211,7 +227,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				FB84ECD32985594500777DBA /* PBXTargetDependency */,
 			);
 			name = APIClientPractice;
 			productName = APIClientPractice;
@@ -254,24 +269,6 @@
 			productReference = FB5A8D122980BC9A0097C4F3 /* APIClientPracticeUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
-		FB84ECCD2985594500777DBA /* APIModule */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = FB84ECD92985594500777DBA /* Build configuration list for PBXNativeTarget "APIModule" */;
-			buildPhases = (
-				FB84ECC92985594500777DBA /* Headers */,
-				FB84ECCA2985594500777DBA /* Sources */,
-				FB84ECCB2985594500777DBA /* Frameworks */,
-				FB84ECCC2985594500777DBA /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = APIModule;
-			productName = APIModule;
-			productReference = FB84ECCE2985594500777DBA /* APIModule.framework */;
-			productType = "com.apple.product-type.framework";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -279,7 +276,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1420;
+				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1420;
 				TargetAttributes = {
 					FB5A8CF62980BC980097C4F3 = {
@@ -292,10 +289,6 @@
 					FB5A8D112980BC9A0097C4F3 = {
 						CreatedOnToolsVersion = 14.2;
 						TestTargetID = FB5A8CF62980BC980097C4F3;
-					};
-					FB84ECCD2985594500777DBA = {
-						CreatedOnToolsVersion = 14.2;
-						LastSwiftMigration = 1420;
 					};
 				};
 			};
@@ -315,7 +308,6 @@
 				FB5A8CF62980BC980097C4F3 /* APIClientPractice */,
 				FB5A8D072980BC9A0097C4F3 /* APIClientPracticeTests */,
 				FB5A8D112980BC9A0097C4F3 /* APIClientPracticeUITests */,
-				FB84ECCD2985594500777DBA /* APIModule */,
 			);
 		};
 /* End PBXProject section */
@@ -344,13 +336,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FB84ECCC2985594500777DBA /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -358,8 +343,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBC9C73D2A8B256B006E8F6D /* ApiClient.swift in Sources */,
+				FBC9C7462A8B2B16006E8F6D /* YoutubeRepository.swift in Sources */,
+				FBC9C7442A8B25D8006E8F6D /* YoutubeRepositoryProtocol.swift in Sources */,
+				FBC9C73F2A8B256F006E8F6D /* Task+Extensions.swift in Sources */,
+				FBC9C73C2A8B2568006E8F6D /* Api.swift in Sources */,
 				FB5A8CFD2980BC980097C4F3 /* ContentView.swift in Sources */,
+				FBC9C7162A8B24AF006E8F6D /* ContentUseCaseProtocol.swift in Sources */,
 				FB5A8CFB2980BC980097C4F3 /* APIClientPracticeApp.swift in Sources */,
+				FBC9C7402A8B2572006E8F6D /* YoutubeApi.swift in Sources */,
+				FBC9C73E2A8B256D006E8F6D /* ApiError.swift in Sources */,
+				FBC9C73B2A8B254C006E8F6D /* YoutubeEntity.swift in Sources */,
+				FBF162DA29D29B4B002D92B5 /* ContentViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,17 +375,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FB84ECCA2985594500777DBA /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FB84ECDB29855AED00777DBA /* Api.swift in Sources */,
-				FB84ECDD29855EC800777DBA /* ApiClient.swift in Sources */,
-				FB84ECE1298561D200777DBA /* Task+Extensions.swift in Sources */,
-				FB84ECDF29855F4F00777DBA /* ApiError.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -403,11 +387,6 @@
 			isa = PBXTargetDependency;
 			target = FB5A8CF62980BC980097C4F3 /* APIClientPractice */;
 			targetProxy = FB5A8D132980BC9A0097C4F3 /* PBXContainerItemProxy */;
-		};
-		FB84ECD32985594500777DBA /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = FB84ECCD2985594500777DBA /* APIModule */;
-			targetProxy = FB84ECD22985594500777DBA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -681,72 +660,6 @@
 			};
 			name = Release;
 		};
-		FB84ECD72985594500777DBA /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = project.kamui.APIModule;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		FB84ECD82985594500777DBA /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = project.kamui.APIModule;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -782,15 +695,6 @@
 			buildConfigurations = (
 				FB5A8D232980BC9A0097C4F3 /* Debug */,
 				FB5A8D242980BC9A0097C4F3 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		FB84ECD92985594500777DBA /* Build configuration list for PBXNativeTarget "APIModule" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FB84ECD72985594500777DBA /* Debug */,
-				FB84ECD82985594500777DBA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
