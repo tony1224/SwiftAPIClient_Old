@@ -7,27 +7,25 @@
 
 import Foundation
 
-public struct YoutubeThumbnailBase: Codable {
-    public var id: String = UUID().uuidString
-    public let _default: YoutubeThumbnail // ここが怒られそう
-    public let medium: YoutubeThumbnail
-    public let high: YoutubeThumbnail
+public struct YoutubeEntity: Codable {
+    public let kind: String
+    public let etag: String
+    public let nextPageToken: String
+    public let regionCode: String
+    public let pageInfo: PageInfo
+    public let items: [Item]
 }
 
-public struct YoutubeThumbnail: Codable {
-    public var id: String = UUID().uuidString
-    public let url: URL
-    public let width: CGFloat
-    public let height: CGFloat
+public struct PageInfo: Codable {
+    public let totalResults: Int
+    public let resultsPerPage: Int
 }
 
-public struct YoutubeSnippet: Codable {
-    // channelTitle, 配信中有無は割愛
-    public let channelId: String
-    public let publishedAt: Date
-    public let title: String
-    public let description: String
-    public let thumbnails: YoutubeThumbnailBase
+public struct Item: Codable {
+    public let kind: String
+    public let etag: String
+    public let id: YoutubeID
+    public let snippet: YoutubeSnippet
 }
 
 public struct YoutubeID: Codable {
@@ -35,8 +33,32 @@ public struct YoutubeID: Codable {
     public let videoId: String
 }
 
-public struct YoutubeEntity: DataStructure {
-    public let status: String
-    public let id: YoutubeID
-    public let snuippet: YoutubeSnippet
+public struct YoutubeSnippet: Codable {
+    // channelTitle, 配信中有無は割愛
+    public let publishedAt: String
+    public let channelId: String
+    public let title: String
+    public let description: String
+    public let thumbnails: YoutubeThumbnailBase
+    public let channelTitle: String
+    public let liveBroadcastContent: String
+    public let publishTime: String
+}
+
+public struct YoutubeThumbnailBase: Codable {
+    public let _default: YoutubeThumbnail
+    public let medium: YoutubeThumbnail
+    public let high: YoutubeThumbnail
+    
+    enum CodingKeys: String, CodingKey {
+        case _default = "default"
+        case medium
+        case high
+    }
+}
+
+public struct YoutubeThumbnail: Codable {
+    public let url: String
+    public let width: Int
+    public let height: Int
 }

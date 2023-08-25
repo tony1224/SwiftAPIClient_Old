@@ -17,7 +17,7 @@ public extension YoutubeApi {
     }
 }
 
-public struct YoutubeSearchApi: YoutubeApi {    
+public struct YoutubeSearchApi: YoutubeApi {
     public typealias Response = YoutubeEntity
     // postの話だったのでここではなし
 //    public struct RequestParams: Codable {

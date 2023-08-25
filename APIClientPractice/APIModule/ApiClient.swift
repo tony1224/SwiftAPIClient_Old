@@ -14,7 +14,7 @@ public protocol ApiClientProtocol {
 public final class ApiClient: ApiClientProtocol {
     public init() {}
     
-    public func request<T: RequestProtocol>(api: T) async throws -> T.Response {
+    public func request<T: RequestProtocol>(api: T) async throws -> T.Response where T: RequestProtocol {
         guard let urlRequest = try? createURLRequest(api) else {
             throw ApiError.Client.parameterParseError
         }
@@ -33,7 +33,7 @@ public final class ApiClient: ApiClientProtocol {
                 throw ApiError.Client.unacceptableStatusCode(urlResponse.statusCode)
             }
             // 一旦JSONだけ想定
-            return try JSONDecoder().decode(T.Response.self, from: data)
+            return try T.parseResponse(data: data)
         } catch {
             // TODO: 通信遮断について
             throw error

@@ -22,6 +22,12 @@ struct ContentView: View {
             Text("Hello, world!")
         }
         .padding()
+        .task {
+            await viewModel.fetchYoutube()
+        }
+        .alert("Error", isPresented: $viewModel.shouldShowAlert, actions: {}, message: {
+            Text(viewModel.errorMessage)
+        })
     }
 }
 

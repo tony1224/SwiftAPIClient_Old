@@ -7,26 +7,8 @@
 
 import Foundation
 
-public enum ApiRetryStrategy {
-    case none
-    case retry(maxRetry: Int)
-    
-    public static func retryWhenNetworkConnectionLostDefault() -> ApiRetryStrategy {
-        return .retry(maxRetry: 3)
-    }
-    
-    public var maxRetry: Int {
-        switch self {
-        case .none:
-            return 0
-        case .retry(let maxRetry):
-            return maxRetry
-        }
-    }
-}
-
 public protocol RequestProtocol {
-    associatedtype Response: DataStructure
+    associatedtype Response
     var method: HTTPMethod { get }
     // 各APIでこのI/F準拠の元extensionを作りここを指定
     var baseURL: String { get }
@@ -45,21 +27,41 @@ public protocol RequestProtocol {
     // static var retryWhenNetworkConnectionLost: ApiRetryStrategy { get }
 
     // RみたくresponseTypeがある場合はtype: ApiResponseContentsTypeを追加
-    // static func parseResponse(data: Data) throws -> Response
+    static func parseResponse(data: Data) throws -> Response
     
     // YoutubeDataApiでsessionToken的なのはAPIキーで対応する
     // のでsessionProvider.isSessinTokenRequiredはfalse
     // var sessionProvider: ApiSessionProvider { get }    
 }
 
-public protocol DataStructure: Encodable, Decodable {
-    var status: String { get }
+public extension RequestProtocol where Response: Swift.Decodable {
+    static func parseResponse(data: Data) throws -> Response {
+        try JSONDecoder().decode(Response.self, from: data)
+    }
 }
 
 public enum HTTPMethod: String {
     case get = "GET"
     case post = "POST"
 }
+
+//public enum ApiRetryStrategy {
+//    case none
+//    case retry(maxRetry: Int)
+//
+//    public static func retryWhenNetworkConnectionLostDefault() -> ApiRetryStrategy {
+//        return .retry(maxRetry: 3)
+//    }
+//
+//    public var maxRetry: Int {
+//        switch self {
+//        case .none:
+//            return 0
+//        case .retry(let maxRetry):
+//            return maxRetry
+//        }
+//    }
+//}
 
 //public protocol ApiSessionProvider {
 //    var isSessionTokenRequired: Bool { get }

@@ -8,13 +8,12 @@
 import Foundation
 
 class ContentViewModel: ObservableObject {
+    @Published var shouldShowAlert: Bool = false
+    @Published private(set) var errorMessage: String = ""
     private let useCase: ContentUseCaseProtocol
 
     init(useCase: ContentUseCaseProtocol) {
         self.useCase = useCase
-        Task {
-            await fetchYoutube()
-        }
     }
     
     @MainActor
@@ -23,7 +22,8 @@ class ContentViewModel: ObservableObject {
             let entity = try await useCase.searchMovie(query: "dog")
             print(entity)
         } catch {
-            print(error)
+            shouldShowAlert = true
+            errorMessage = error.localizedDescription
         }
     }
     
