@@ -1,11 +1,40 @@
-# 今作業してるのはAPIModule 
-- 大まかなインターフェースをそこにまとめる
-- 全体図はUMLを参照
-# api-client-practice
-- APIモジュールを作成
-- Main TargetからAPIモジュールを参照しAPIリクエストを行いレスポンスを取得する仕組みの練習
-# 取り組むこと
+# About
+- API通信の仕組みを作成
 - 外部モジュールとしてAPI関連の処理をまとめる
-- Swift Concurrencyによる非同期処理
-# 練習対象外
-- SwiftPMによるパッケージ管理
+- Swift Concurrencyによる非同期処理の実現
+- ※下の図ではなくコードを見て全体を理解すること
+# クラス図
+```mermaid
+classDiagram
+class HogeApi { }
+class HogeRepositoryProtocol {
+    <<interface>>
+    +hoge()* Hoge
+}
+class HogeRepository {
+    -init(apiClient: ApiClientProtocol) 
+}
+class ApiClientProtocol {
+    <<interface>>
+    +request<T: RequestProtocol>(api: T)* T.Response
+}
+class RequestProtocol {
+    <<interface>>
+    -HTTPMethod method;
+    -String baseURL
+    -String path
+    -[String: Any]? parameters
+    +parseResponse(data: Data)* Response
+}
+class HTTPMethod {
+    <<enumeration>>
+    Get
+    Posot
+}
+HogeApi ..> RequestProtocol
+HogeRepository ..> HogeRepositoryProtocol
+HogeRepository --> HogeApi
+HogeRepository --> ApiClientProtocol
+ApiClientProtocol --> RequestProtocol
+RequestProtocol --> HTTPMethod
+```
