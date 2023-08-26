@@ -23,84 +23,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "70DFE5A0-AFF4-47BB-9BF0-5014EADCBEEE"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "APIClientPractice/Content/ContentViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "23"
-            endingLineNumber = "23"
-            landmarkName = "fetchYoutube()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "70DFE5A0-AFF4-47BB-9BF0-5014EADCBEEE - 46d477f3c0ce4e76"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for APIClientPractice.ContentViewModel.fetchYoutube() async -&gt; ()"
-                  moduleName = "APIClientPractice"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jun.morita/Desktop/APIClientPractice/APIClientPractice/Content/ContentViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "24"
-                  endingLineNumber = "24"
-                  offsetFromSymbolStart = "112">
-               </Location>
-               <Location
-                  uuid = "70DFE5A0-AFF4-47BB-9BF0-5014EADCBEEE - 46d477f3c0ce4ee9"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for APIClientPractice.ContentViewModel.fetchYoutube() async -&gt; ()"
-                  moduleName = "APIClientPractice"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jun.morita/Desktop/APIClientPractice/APIClientPractice/Content/ContentViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "21"
-                  endingLineNumber = "21"
-                  offsetFromSymbolStart = "112">
-               </Location>
-               <Location
-                  uuid = "70DFE5A0-AFF4-47BB-9BF0-5014EADCBEEE - 46d477f3c0ce4e57"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for APIClientPractice.ContentViewModel.fetchYoutube() async -&gt; ()"
-                  moduleName = "APIClientPractice"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jun.morita/Desktop/APIClientPractice/APIClientPractice/Content/ContentViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "23"
-                  endingLineNumber = "23"
-                  offsetFromSymbolStart = "112">
-               </Location>
-               <Location
-                  uuid = "70DFE5A0-AFF4-47BB-9BF0-5014EADCBEEE - 46d477f3c0ce4e57"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for APIClientPractice.ContentViewModel.fetchYoutube() async -&gt; ()"
-                  moduleName = "APIClientPractice"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jun.morita/Desktop/APIClientPractice/APIClientPractice/Content/ContentViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "23"
-                  endingLineNumber = "23"
-                  offsetFromSymbolStart = "108">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "40795A5B-ED4B-45AA-8E68-D2A35926D1CB"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -156,10 +78,42 @@
             filePath = "APIClientPractice/Content/ContentViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
             landmarkName = "fetchYoutube()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D82402F9-8445-42BA-AE8A-FBB344EBD43D - fe60b7bb7f4ea055"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for APIClientPractice.ContentViewModel.fetchYoutube() async -&gt; ()"
+                  moduleName = "APIClientPractice"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jun.morita/Desktop/APIClientPractice/APIClientPractice/Content/ContentViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "152">
+               </Location>
+               <Location
+                  uuid = "D82402F9-8445-42BA-AE8A-FBB344EBD43D - fe60b7bb7f4ea193"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for APIClientPractice.ContentViewModel.fetchYoutube() async -&gt; ()"
+                  moduleName = "APIClientPractice"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jun.morita/Desktop/APIClientPractice/APIClientPractice/Content/ContentViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "152">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
