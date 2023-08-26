@@ -1,5 +1,5 @@
 //
-//  API.swift
+//  RequestProtocol.swift
 //  APIModule
 //
 //  Created by Jun Morita on 2023/01/28.
