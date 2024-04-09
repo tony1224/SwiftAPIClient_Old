@@ -8,5 +8,5 @@
 import Foundation
 
 protocol YoutubeRepositoryProtocol {
-    func search(query: String) async throws -> YoutubeEntity
+    func search(query: String) async throws -> [YoutubeDomainEntity]
 }

@@ -7,60 +7,30 @@
 
 import Foundation
 
-public protocol ApiErrorResponsePayload: Codable {
-    var message: String { get }
-    var detailedError: String { get }
-    var errorCode: UInt32 { get }
-}
-
-public protocol ApiErrorResponse: Codable {
-    associatedtype Payload: ApiErrorResponsePayload
-    var payload: Payload { get }
-    var url: URL? { get set }
-}
-
-//public extension ApiErrorResponse {
-//    func makeVliveError() -> ApiError {
-//        return errorWithPayload(payload: payload, url: url)
-//    }
-//}
-
-// ErrorResponsePayloadTypeの定義はServer側に依存
-//public func errorWithPayload(payload: ErrorResponsePayloadType, url: URL? = nil) -> ApiError {
-//    let code = (UInt32(payload.errorCode) & 0xF0000000) >> 28
-//
-//    switch code {
-//    case 1, 2, 3, 4:
-//        return makeServerError(payload: payload, url: url)
-//    case 5:
-//        return VliveError.auth(.common(payload))
-//    case 6:
-//        return makeLimitedAccessError(payload: payload)
-//    case 7:
-//        return makeUpdateRequestError(payload: payload)
-//    case 8:
-//        return VliveError.serviceUnavailable(.common(payload))
-//    default:
-//        return VliveError.undefined
-//    }
-//}
-
 public enum ApiError: Error {
-//    case server(Server)
-//    case client(Client)
-    case undefined
-    
-    public enum Client: ApiErrorCategory {
-        case failedToCreateURL
-        case failedToCreateComponents(URL)
-        case noResponse
-        case unacceptableStatusCode(Int)
-        
-        case parameterParseError
-        case jsonParseError(URL?, Error)
-        case sessionTokenRequired
-        case notConnectedToInternet(URL?)
+    case url(URL)
+    case network
+    case response
+    case emptyResponse
+    case parse(URL?, Error)
+    case undefined(status: Int, data: Data)
+}
+
+extension ApiError: LocalizedError {
+    public var errorDescription: String? {
+        switch self {
+        case .url:
+            return "URLが無効"
+        case .network:
+            return "ネットワーク未接続"
+        case .response:
+            return "レスポンス取得失敗"
+        case .emptyResponse:
+            return "レスポンスが空"
+        case .parse:
+            return "パースエラー"
+        case .undefined(status: let status, data: let data):
+            return "エラー statusCode: \(status), data: \(data)"
+        }
     }
 }
-
-public protocol ApiErrorCategory: Error {}

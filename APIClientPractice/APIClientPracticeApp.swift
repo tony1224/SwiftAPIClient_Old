@@ -11,7 +11,8 @@ import SwiftUI
 struct APIClientPracticeApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView(useCase: ContentUseCase(repository: YoutubeRepository(apiClient: ApiClient())))
+            ContentView()
+                .environmentObject(ContentStore(repository: YoutubeRepository(apiClient: ApiClient())))
         }
     }
 }

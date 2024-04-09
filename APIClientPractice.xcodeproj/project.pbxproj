@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		843B462C2BC4FC4100AA8629 /* ContentStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B462B2BC4FC4000AA8629 /* ContentStore.swift */; };
+		843B462E2BC4FC9000AA8629 /* YoutubeDomainEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B462D2BC4FC9000AA8629 /* YoutubeDomainEntity.swift */; };
 		FB5A8CFB2980BC980097C4F3 /* APIClientPracticeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5A8CFA2980BC980097C4F3 /* APIClientPracticeApp.swift */; };
 		FB5A8CFD2980BC980097C4F3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5A8CFC2980BC980097C4F3 /* ContentView.swift */; };
 		FB5A8CFF2980BC9A0097C4F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB5A8CFE2980BC9A0097C4F3 /* Assets.xcassets */; };
@@ -14,16 +16,14 @@
 		FB5A8D0D2980BC9A0097C4F3 /* APIClientPracticeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5A8D0C2980BC9A0097C4F3 /* APIClientPracticeTests.swift */; };
 		FB5A8D172980BC9A0097C4F3 /* APIClientPracticeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5A8D162980BC9A0097C4F3 /* APIClientPracticeUITests.swift */; };
 		FB5A8D192980BC9A0097C4F3 /* APIClientPracticeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5A8D182980BC9A0097C4F3 /* APIClientPracticeUITestsLaunchTests.swift */; };
-		FBC9C7162A8B24AF006E8F6D /* ContentUseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC9C7152A8B24AF006E8F6D /* ContentUseCaseProtocol.swift */; };
 		FBC9C73B2A8B254C006E8F6D /* YoutubeEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF162D729D298FE002D92B5 /* YoutubeEntity.swift */; };
-		FBC9C73C2A8B2568006E8F6D /* RequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB84ECDA29855AED00777DBA /* RequestProtocol.swift */; };
+		FBC9C73C2A8B2568006E8F6D /* ApiProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB84ECDA29855AED00777DBA /* ApiProtocol.swift */; };
 		FBC9C73D2A8B256B006E8F6D /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB84ECDC29855EC800777DBA /* ApiClient.swift */; };
 		FBC9C73E2A8B256D006E8F6D /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB84ECDE29855F4F00777DBA /* ApiError.swift */; };
 		FBC9C73F2A8B256F006E8F6D /* Task+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB84ECE0298561D200777DBA /* Task+Extensions.swift */; };
 		FBC9C7402A8B2572006E8F6D /* YoutubeApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB84ECE22986D14C00777DBA /* YoutubeApi.swift */; };
 		FBC9C7442A8B25D8006E8F6D /* YoutubeRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC9C7432A8B25D8006E8F6D /* YoutubeRepositoryProtocol.swift */; };
 		FBC9C7462A8B2B16006E8F6D /* YoutubeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC9C7452A8B2B16006E8F6D /* YoutubeRepository.swift */; };
-		FBF162DA29D29B4B002D92B5 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF162D929D29B4B002D92B5 /* ContentViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +57,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		843B462B2BC4FC4000AA8629 /* ContentStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentStore.swift; sourceTree = "<group>"; };
+		843B462D2BC4FC9000AA8629 /* YoutubeDomainEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YoutubeDomainEntity.swift; sourceTree = "<group>"; };
 		FB5A8CF72980BC980097C4F3 /* APIClientPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = APIClientPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB5A8CFA2980BC980097C4F3 /* APIClientPracticeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientPracticeApp.swift; sourceTree = "<group>"; };
 		FB5A8CFC2980BC980097C4F3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -68,16 +70,14 @@
 		FB5A8D122980BC9A0097C4F3 /* APIClientPracticeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = APIClientPracticeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB5A8D162980BC9A0097C4F3 /* APIClientPracticeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientPracticeUITests.swift; sourceTree = "<group>"; };
 		FB5A8D182980BC9A0097C4F3 /* APIClientPracticeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientPracticeUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		FB84ECDA29855AED00777DBA /* RequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestProtocol.swift; sourceTree = "<group>"; };
+		FB84ECDA29855AED00777DBA /* ApiProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiProtocol.swift; sourceTree = "<group>"; };
 		FB84ECDC29855EC800777DBA /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		FB84ECDE29855F4F00777DBA /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
 		FB84ECE0298561D200777DBA /* Task+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+Extensions.swift"; sourceTree = "<group>"; };
 		FB84ECE22986D14C00777DBA /* YoutubeApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeApi.swift; sourceTree = "<group>"; };
-		FBC9C7152A8B24AF006E8F6D /* ContentUseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentUseCaseProtocol.swift; sourceTree = "<group>"; };
 		FBC9C7432A8B25D8006E8F6D /* YoutubeRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeRepositoryProtocol.swift; sourceTree = "<group>"; };
 		FBC9C7452A8B2B16006E8F6D /* YoutubeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeRepository.swift; sourceTree = "<group>"; };
 		FBF162D729D298FE002D92B5 /* YoutubeEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeEntity.swift; sourceTree = "<group>"; };
-		FBF162D929D29B4B002D92B5 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +130,7 @@
 			children = (
 				FBC9C7422A8B25B0006E8F6D /* Content */,
 				FBC9C73A2A8B252C006E8F6D /* Core */,
+				FBC9C7412A8B257A006E8F6D /* Api */,
 				FBC9C7392A8B2517006E8F6D /* APIModule */,
 				FB5A8CFA2980BC980097C4F3 /* APIClientPracticeApp.swift */,
 				FB5A8CFE2980BC9A0097C4F3 /* Assets.xcassets */,
@@ -167,8 +168,7 @@
 		FBC9C7392A8B2517006E8F6D /* APIModule */ = {
 			isa = PBXGroup;
 			children = (
-				FBC9C7412A8B257A006E8F6D /* Api */,
-				FB84ECDA29855AED00777DBA /* RequestProtocol.swift */,
+				FB84ECDA29855AED00777DBA /* ApiProtocol.swift */,
 				FB84ECDC29855EC800777DBA /* ApiClient.swift */,
 				FB84ECDE29855F4F00777DBA /* ApiError.swift */,
 				FB84ECE0298561D200777DBA /* Task+Extensions.swift */,
@@ -196,8 +196,7 @@
 		FBC9C7422A8B25B0006E8F6D /* Content */ = {
 			isa = PBXGroup;
 			children = (
-				FBF162D929D29B4B002D92B5 /* ContentViewModel.swift */,
-				FBC9C7152A8B24AF006E8F6D /* ContentUseCaseProtocol.swift */,
+				843B462B2BC4FC4000AA8629 /* ContentStore.swift */,
 				FB5A8CFC2980BC980097C4F3 /* ContentView.swift */,
 				FBC9C7452A8B2B16006E8F6D /* YoutubeRepository.swift */,
 			);
@@ -207,6 +206,7 @@
 		FBF162D629D298F0002D92B5 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				843B462D2BC4FC9000AA8629 /* YoutubeDomainEntity.swift */,
 				FBC9C7432A8B25D8006E8F6D /* YoutubeRepositoryProtocol.swift */,
 			);
 			path = Domain;
@@ -345,16 +345,16 @@
 			files = (
 				FBC9C73D2A8B256B006E8F6D /* ApiClient.swift in Sources */,
 				FBC9C7462A8B2B16006E8F6D /* YoutubeRepository.swift in Sources */,
+				843B462E2BC4FC9000AA8629 /* YoutubeDomainEntity.swift in Sources */,
 				FBC9C7442A8B25D8006E8F6D /* YoutubeRepositoryProtocol.swift in Sources */,
 				FBC9C73F2A8B256F006E8F6D /* Task+Extensions.swift in Sources */,
-				FBC9C73C2A8B2568006E8F6D /* RequestProtocol.swift in Sources */,
+				FBC9C73C2A8B2568006E8F6D /* ApiProtocol.swift in Sources */,
+				843B462C2BC4FC4100AA8629 /* ContentStore.swift in Sources */,
 				FB5A8CFD2980BC980097C4F3 /* ContentView.swift in Sources */,
-				FBC9C7162A8B24AF006E8F6D /* ContentUseCaseProtocol.swift in Sources */,
 				FB5A8CFB2980BC980097C4F3 /* APIClientPracticeApp.swift in Sources */,
 				FBC9C7402A8B2572006E8F6D /* YoutubeApi.swift in Sources */,
 				FBC9C73E2A8B256D006E8F6D /* ApiError.swift in Sources */,
 				FBC9C73B2A8B254C006E8F6D /* YoutubeEntity.swift in Sources */,
-				FBF162DA29D29B4B002D92B5 /* ContentViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

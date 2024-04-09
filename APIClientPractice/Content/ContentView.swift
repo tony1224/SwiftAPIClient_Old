@@ -8,30 +8,56 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject private var viewModel: ContentViewModel
+    @State private var shouldShowAlert: Bool = false
+    @State private var errorMessage: String = ""
+    @EnvironmentObject var contentStore: ContentStore
     
-    init(useCase: ContentUseCaseProtocol) {
-        _viewModel = StateObject(wrappedValue: ContentViewModel(useCase: useCase))
+    var items: [YoutubeDomainEntity] {
+        contentStore.values
+    }
+    
+    func load() async {
+        do {
+            try await contentStore.searchValues(by: "test")
+        } catch {
+            shouldShowAlert = true
+            errorMessage = error.localizedDescription
+        }
     }
     
     var body: some View {
         Form {
-            ForEach(viewModel.itemList, id: \.id.videoId) { item in
-                Text(item.snippet.title)
+            ForEach(items, id: \.videoId) { item in
+                Text(item.snippetTitle)
             }
         }
         .task {
-            await viewModel.fetchYoutube()
+            await load()
         }
-        .alert("Error", isPresented: $viewModel.shouldShowAlert, actions: {}, message: {
-            Text(viewModel.errorMessage)
+        .alert("Error", isPresented: $shouldShowAlert, actions: {}, message: {
+            Text(errorMessage)
         })
+        
     }
 }
 
+
+// NOTE: このリポジトリではここを頑張っても仕方ない
+// きちんと実行しRepository, APIを通して正しい値を取得できること
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        let uc = ContentUseCase(repository: YoutubeRepository(apiClient: ApiClient()))
-        return ContentView(useCase: uc)
+        ContentView()
+            .environmentObject(ContentStore(repository: PreviewYoutubeRepository()))
     }
 }
+
+private struct PreviewYoutubeRepository: YoutubeRepositoryProtocol {
+    func search(query: String) async throws -> [YoutubeDomainEntity] {
+        [
+            .init(videoId: "1", snippetTitle: "TestA"),
+            .init(videoId: "2", snippetTitle: "TestB"),
+            .init(videoId: "3", snippetTitle: "TestC"),
+        ]
+    }
+}
+

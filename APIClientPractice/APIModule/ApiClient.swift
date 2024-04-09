@@ -8,70 +8,68 @@
 import Foundation
 
 public protocol ApiClientProtocol {
-    func request<T: RequestProtocol>(api: T) async throws -> T.Response
+    func request<T: ApiRequestProtocol>(api: T) async throws -> T.Response
 }
 
 public final class ApiClient: ApiClientProtocol {
     public init() {}
     
-    public func request<T: RequestProtocol>(api: T) async throws -> T.Response where T: RequestProtocol {
+    public func request<T: ApiRequestProtocol>(api: T) async throws -> T.Response where T: ApiRequestProtocol {
         guard let urlRequest = try? createURLRequest(api) else {
-            throw ApiError.Client.parameterParseError
+            throw ApiError.url(api.baseURL.appendingPathComponent(api.path))
         }
         do {
-            // retry処理
+            // TODO: retry
             // let result = try await Task.retrying(maxRetryCount: T.retryWhenNetworkConnectionLost.maxRetry) {
             // return try await URLSession.shared.data(for: urlRequest)
             // }.value
             let (data, urlResponse) = try await URLSession.shared.data(for: urlRequest)
-            // responseチェック
+            // check response
             guard let urlResponse = urlResponse as? HTTPURLResponse else {
-                throw ApiError.Client.noResponse
+                throw ApiError.emptyResponse
             }
-            // statuscodeチェック
+            // check status code
             guard 200..<300 ~= urlResponse.statusCode else {
-                throw ApiError.Client.unacceptableStatusCode(urlResponse.statusCode)
+                throw ApiError.undefined(status: urlResponse.statusCode, data: data)
             }
-            // 一旦JSONだけ想定
-            return try T.parseResponse(data: data)
+            // FIXME: 一旦JSONだけ想定
+            return try JSONDecoder().decode(T.Response.self, from: data)
         } catch {
-            // TODO: 通信遮断について
-            throw error
+            throw ApiError.network
         }
     }
     
-    private func createURLRequest<T: RequestProtocol>(_ request: T) throws -> URLRequest {
-        guard let url = URL(string: request.baseURL)?.appendingPathComponent(request.path) else {
-            throw ApiError.Client.failedToCreateURL
-        }
+    private func createURLRequest<T: ApiRequestProtocol>(_ api: T) throws -> URLRequest {
+        let url = api.baseURL.appendingPathComponent(api.path)
         var urlRequest: URLRequest
-        switch request.method {
+        
+        switch api.method {
         case .get:
             guard var components = URLComponents(url: url, resolvingAgainstBaseURL: true) else {
-                throw ApiError.Client.failedToCreateComponents(url)
+                throw ApiError.url(url)
             }
-            components.queryItems = request.parameters?.compactMap {
+            components.queryItems = api.parameters?.compactMap {
                 .init(name: $0.key, value: "\($0.value)")
             }
             guard let tmpRequest = components.url.map({ URLRequest(url: $0)} ) else {
-                throw ApiError.Client.failedToCreateURL
+                throw ApiError.url(url)
             }
             urlRequest = tmpRequest
         case .post:
             urlRequest = URLRequest(url: url)
-            // TODO: postなAPI対応時に
-            // urlRequest.httpBody = try api.requestBody()
+            if let httpBody = api.httpBody,
+               let bodyData = try? JSONEncoder().encode(httpBody) {
+                urlRequest.httpBody = bodyData
+            }
         }
-        urlRequest.httpMethod = request.method.rawValue
+        urlRequest.httpMethod = api.method.rawValue
+        
+        // HTTP Header
+        if let header = api.header {
+            urlRequest.allHTTPHeaderFields = header.values()
+        }
 
-        // NOTE: YoutubeDataApiはheader対応不要
-        // urlRequest.allHTTPHeaderFields = try createHeaders(api)
         return urlRequest
     }
-    
-    // private func createHeaders<T: Api>(_ api: T) throws -> [String: String] {
-    //    let headers = [String: String]()
-    //    return headers
-    // }
     
 }

@@ -13,8 +13,11 @@ class YoutubeRepository: YoutubeRepositoryProtocol {
     init(apiClient: ApiClientProtocol) {
         self.apiClient = apiClient
     }
-    
-    func search(query: String) async throws -> YoutubeEntity {
-        try await apiClient.request(api: YoutubeSearchApi(query: query))
+
+    func search(query: String) async throws -> [YoutubeDomainEntity] {
+        let res = try await apiClient.request(api: YoutubeSearchApi(query: query))
+        return res.items.map {
+            YoutubeDomainEntity(videoId: $0.id.videoId, snippetTitle: $0.snippet.title)
+        }
     }
 }
