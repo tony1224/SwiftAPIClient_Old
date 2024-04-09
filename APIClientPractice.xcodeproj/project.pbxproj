@@ -70,7 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				FBC9C7422A8B25B0006E8F6D /* Content */,
-				FBC9C73A2A8B252C006E8F6D /* Core */,
+				FBF162D629D298F0002D92B5 /* Domain */,
 				FBC9C7412A8B257A006E8F6D /* Api */,
 			);
 			path = Example;
@@ -122,14 +122,6 @@
 				FB84ECE0298561D200777DBA /* Task+Extensions.swift */,
 			);
 			path = APIModule;
-			sourceTree = "<group>";
-		};
-		FBC9C73A2A8B252C006E8F6D /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				FBF162D629D298F0002D92B5 /* Domain */,
-			);
-			path = Core;
 			sourceTree = "<group>";
 		};
 		FBC9C7412A8B257A006E8F6D /* Api */ = {
