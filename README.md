@@ -18,23 +18,29 @@ class ApiClientProtocol {
     <<interface>>
     +request<T: RequestProtocol>(api: T)* T.Response
 }
-class RequestProtocol {
-    <<interface>>
-    -HTTPMethod method;
-    -String baseURL
+class ApiProtocol {
+    <<interface>> 
+    -HTTPMethod method
+	-HTTPHeader header
+    -URL baseURL
     -String path
+	-Encodabe? httpBody 
     -[String: Any]? parameters
-    +parseResponse(data: Data)* Response
 }
 class HTTPMethod {
     <<enumeration>>
     Get
     Posot
 }
-HogeApi ..> RequestProtocol
+class HTTPHeader {
+	<<interface>>
+	-init([String:String])
+}
+HogeApi ..> ApiProtocol
 HogeRepository ..> HogeRepositoryProtocol
 HogeRepository --> HogeApi
 HogeRepository --> ApiClientProtocol
-ApiClientProtocol --> RequestProtocol
-RequestProtocol --> HTTPMethod
+ApiClientProtocol --> ApiProtocol
+ApiProtocol --> HTTPMethod
+ApiProtocol --> HTTPHeader
 ```
