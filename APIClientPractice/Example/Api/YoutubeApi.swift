@@ -9,9 +9,9 @@ import Foundation
 
 let youtubeApiKey = "AIzaSyCzenyv3g_tPZdebAOKLZA2tA75wrbPIRU"
 
-public protocol YoutubeApi: ApiRequestProtocol {}
+protocol YoutubeApi: ApiRequestProtocol {}
 
-public extension YoutubeApi {
+extension YoutubeApi {
     var baseURL: URL {
         URL(string: "https://www.googleapis.com/youtube/v3")!
     }
@@ -21,12 +21,12 @@ public extension YoutubeApi {
     }
 }
 
-public struct YoutubeSearchApi: YoutubeApi {
-    public typealias Response = YoutubeEntity
-    public var path: String = "search"
-    public var method: HTTPMethod = .get
-    public var httpBody: Encodable?
-    public var parameters: [String : String]?
+struct YoutubeSearchApi: YoutubeApi {
+    typealias Response = YoutubeEntity
+    var path: String = "search"
+    var method: HTTPMethod = .get
+    var httpBody: Encodable?
+    var parameters: [String : String]?
     
     init(query: String) {
         parameters = [

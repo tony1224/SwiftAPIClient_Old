@@ -7,11 +7,9 @@
 
 import Foundation
 
-// NOTE: Coreで良いが今はここ
-
 extension Task where Failure == Error {
     @discardableResult
-    static func retrying(
+    public static func retrying(
         priority: TaskPriority? = nil,
         maxRetryCount: Int = 3,
         operation: @Sendable @escaping () async throws -> Success

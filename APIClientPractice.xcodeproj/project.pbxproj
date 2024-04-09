@@ -105,6 +105,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		843B462F2BC4FEE700AA8629 /* Example */ = {
+			isa = PBXGroup;
+			children = (
+				FBC9C7422A8B25B0006E8F6D /* Content */,
+				FBC9C73A2A8B252C006E8F6D /* Core */,
+				FBC9C7412A8B257A006E8F6D /* Api */,
+			);
+			path = Example;
+			sourceTree = "<group>";
+		};
 		FB5A8CEE2980BC980097C4F3 = {
 			isa = PBXGroup;
 			children = (
@@ -128,9 +138,7 @@
 		FB5A8CF92980BC980097C4F3 /* APIClientPractice */ = {
 			isa = PBXGroup;
 			children = (
-				FBC9C7422A8B25B0006E8F6D /* Content */,
-				FBC9C73A2A8B252C006E8F6D /* Core */,
-				FBC9C7412A8B257A006E8F6D /* Api */,
+				843B462F2BC4FEE700AA8629 /* Example */,
 				FBC9C7392A8B2517006E8F6D /* APIModule */,
 				FB5A8CFA2980BC980097C4F3 /* APIClientPracticeApp.swift */,
 				FB5A8CFE2980BC9A0097C4F3 /* Assets.xcassets */,

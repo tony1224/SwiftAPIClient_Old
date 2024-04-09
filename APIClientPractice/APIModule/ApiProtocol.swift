@@ -56,7 +56,7 @@ public class HttpHeader {
 
 }
 
-struct EmptyResponse: Codable {}
+public struct EmptyResponse: Codable {}
 
 
 //public enum ApiRetryStrategy {
