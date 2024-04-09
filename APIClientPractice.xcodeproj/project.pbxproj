@@ -14,10 +14,6 @@
 		FB5A8CFF2980BC9A0097C4F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB5A8CFE2980BC9A0097C4F3 /* Assets.xcassets */; };
 		FB5A8D032980BC9A0097C4F3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB5A8D022980BC9A0097C4F3 /* Preview Assets.xcassets */; };
 		FBC9C73B2A8B254C006E8F6D /* YoutubeEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF162D729D298FE002D92B5 /* YoutubeEntity.swift */; };
-		FBC9C73C2A8B2568006E8F6D /* ApiProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB84ECDA29855AED00777DBA /* ApiProtocol.swift */; };
-		FBC9C73D2A8B256B006E8F6D /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB84ECDC29855EC800777DBA /* ApiClient.swift */; };
-		FBC9C73E2A8B256D006E8F6D /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB84ECDE29855F4F00777DBA /* ApiError.swift */; };
-		FBC9C73F2A8B256F006E8F6D /* Task+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB84ECE0298561D200777DBA /* Task+Extensions.swift */; };
 		FBC9C7402A8B2572006E8F6D /* YoutubeApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB84ECE22986D14C00777DBA /* YoutubeApi.swift */; };
 		FBC9C7442A8B25D8006E8F6D /* YoutubeRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC9C7432A8B25D8006E8F6D /* YoutubeRepositoryProtocol.swift */; };
 		FBC9C7462A8B2B16006E8F6D /* YoutubeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC9C7452A8B2B16006E8F6D /* YoutubeRepository.swift */; };
@@ -45,10 +41,6 @@
 		FB5A8CFE2980BC9A0097C4F3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FB5A8D002980BC9A0097C4F3 /* APIClientPractice.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = APIClientPractice.entitlements; sourceTree = "<group>"; };
 		FB5A8D022980BC9A0097C4F3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		FB84ECDA29855AED00777DBA /* ApiProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiProtocol.swift; sourceTree = "<group>"; };
-		FB84ECDC29855EC800777DBA /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
-		FB84ECDE29855F4F00777DBA /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
-		FB84ECE0298561D200777DBA /* Task+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+Extensions.swift"; sourceTree = "<group>"; };
 		FB84ECE22986D14C00777DBA /* YoutubeApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeApi.swift; sourceTree = "<group>"; };
 		FBC9C7432A8B25D8006E8F6D /* YoutubeRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeRepositoryProtocol.swift; sourceTree = "<group>"; };
 		FBC9C7452A8B2B16006E8F6D /* YoutubeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeRepository.swift; sourceTree = "<group>"; };
@@ -96,7 +88,6 @@
 			isa = PBXGroup;
 			children = (
 				843B462F2BC4FEE700AA8629 /* Example */,
-				FBC9C7392A8B2517006E8F6D /* APIModule */,
 				FB5A8CFA2980BC980097C4F3 /* APIClientPracticeApp.swift */,
 				FB5A8CFE2980BC9A0097C4F3 /* Assets.xcassets */,
 				FB5A8D002980BC9A0097C4F3 /* APIClientPractice.entitlements */,
@@ -111,17 +102,6 @@
 				FB5A8D022980BC9A0097C4F3 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		FBC9C7392A8B2517006E8F6D /* APIModule */ = {
-			isa = PBXGroup;
-			children = (
-				FB84ECDA29855AED00777DBA /* ApiProtocol.swift */,
-				FB84ECDC29855EC800777DBA /* ApiClient.swift */,
-				FB84ECDE29855F4F00777DBA /* ApiError.swift */,
-				FB84ECE0298561D200777DBA /* Task+Extensions.swift */,
-			);
-			path = APIModule;
 			sourceTree = "<group>";
 		};
 		FBC9C7412A8B257A006E8F6D /* Api */ = {
@@ -223,17 +203,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FBC9C73D2A8B256B006E8F6D /* ApiClient.swift in Sources */,
 				FBC9C7462A8B2B16006E8F6D /* YoutubeRepository.swift in Sources */,
 				843B462E2BC4FC9000AA8629 /* YoutubeDomainEntity.swift in Sources */,
 				FBC9C7442A8B25D8006E8F6D /* YoutubeRepositoryProtocol.swift in Sources */,
-				FBC9C73F2A8B256F006E8F6D /* Task+Extensions.swift in Sources */,
-				FBC9C73C2A8B2568006E8F6D /* ApiProtocol.swift in Sources */,
 				843B462C2BC4FC4100AA8629 /* ContentStore.swift in Sources */,
 				FB5A8CFD2980BC980097C4F3 /* ContentView.swift in Sources */,
 				FB5A8CFB2980BC980097C4F3 /* APIClientPracticeApp.swift in Sources */,
 				FBC9C7402A8B2572006E8F6D /* YoutubeApi.swift in Sources */,
-				FBC9C73E2A8B256D006E8F6D /* ApiError.swift in Sources */,
 				FBC9C73B2A8B254C006E8F6D /* YoutubeEntity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
